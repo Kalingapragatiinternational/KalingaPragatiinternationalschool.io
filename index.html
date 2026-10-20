@@ -514,8 +514,11 @@
             var result = document.getElementById('fees-result');
             
             var baseFee = 0;
+            var admissionFee = 5000;
             var transportFee = (trans === "yes") ? 1500 : 0;
             var structureName = "";
+
+            var totalFee = baseFee + transportFee + admissionFee;
 
             if(cls === "nursery") { baseFee = 999; structureName = "Pre-Primary Child Care Standard"; }
             else if(cls === "primary") { baseFee = 1499; structureName = "Primary School Education Standard"; }
@@ -523,6 +526,7 @@
 
             result.style.display = "block";
             result.innerHTML = "✨ Estimated Monthly Fee Structure (" + structureName + "):<br>" +
+                               "• Admission Fee (One-time): ₹" + admissionFee + "<br>" +
                                "• Tuition & Activity Charges: ₹" + baseFee + "/month<br>" +
                                "• Transport Bus Facility Charges: ₹" + transportFee + "/month<br>" +
                                "• Total Monthly Estimate: ₹" + (baseFee + transportFee) + "/month";
